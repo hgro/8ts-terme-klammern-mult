@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Schlank, schick – und verschwenderisch: Die Wahrheit über die Coladose</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#2f7d32; --green-dark:#1f5a23; --green-light:#e8f3e5;
+    --ink:#1f2a22; --muted:#5d6b60; --line:#dfe6dc; --bg:#f6f8f4; --card:#ffffff;
+    --accent:#c62828;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,sans-serif;font-size:18px;line-height:1.6}
+  a{color:var(--green-dark)}
+  header.site{background:var(--card);border-bottom:1px solid var(--line)}
+  .site-inner{max-width:1080px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--green-dark);font-size:1.05rem;text-decoration:none}
+  .logo svg{width:34px;height:34px}
+  nav{margin-left:auto;display:flex;gap:18px;font-size:.95rem}
+  nav span{color:var(--muted)}
+  nav span.active{color:var(--green-dark);font-weight:700;border-bottom:2px solid var(--green)}
+  main{max-width:780px;margin:0 auto;padding:28px 20px 60px}
+  .crumbs{font-size:.85rem;color:var(--muted);margin-bottom:10px}
+  .tag{display:inline-block;background:var(--green-light);color:var(--green-dark);font-weight:700;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;padding:3px 10px;border-radius:99px}
+  h1{font-family:Merriweather,Georgia,serif;font-weight:900;font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.2;margin:12px 0 10px}
+  .meta{color:var(--muted);font-size:.92rem;display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+  figure.hero{margin:0 0 26px}
+  figure.hero img{width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,.12)}
+  figure.hero figcaption{font-size:.85rem;color:var(--muted);margin-top:8px}
+  article p{margin:0 0 1.1em}
+  article .lead{font-size:1.15rem;font-weight:600}
+  blockquote.claim{margin:1.6em 0;padding:18px 22px;background:var(--card);border-left:5px solid var(--green);border-radius:0 10px 10px 0;font-family:Merriweather,Georgia,serif;font-size:1.08rem;line-height:1.55;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+  blockquote.claim footer{font-family:"Source Sans 3",sans-serif;font-size:.85rem;color:var(--muted);margin-top:8px}
+  .demand{background:var(--green);color:#fff;padding:16px 20px;border-radius:10px;font-weight:700}
+
+  /* Tooltips */
+  .tip{position:relative;border-bottom:2px dotted var(--green);cursor:help;background:linear-gradient(transparent 60%,rgba(47,125,50,.12) 60%);outline:none;white-space:nowrap}
+  .tip::after{content:"i";display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;margin-left:3px;border-radius:50%;background:var(--green);color:#fff;font-size:10px;font-weight:700;vertical-align:super;font-family:Georgia,serif;font-style:italic}
+  .tip .bubble{position:absolute;left:50%;bottom:calc(100% + 10px);transform:translateX(-50%) translateY(4px);width:max-content;max-width:270px;white-space:normal;background:#22302a;color:#fff;font-size:.86rem;line-height:1.45;padding:10px 12px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .15s,transform .15s;z-index:20;font-weight:400}
+  .tip .bubble::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:7px solid transparent;border-top-color:#22302a}
+  .tip .bubble b{color:#b9e4b4}
+  .tip:hover .bubble,.tip:focus .bubble,.tip.open .bubble{opacity:1;transform:translateX(-50%) translateY(0)}
+  .tiphint{font-size:.85rem;color:var(--muted);background:var(--card);border:1px dashed var(--line);border-radius:8px;padding:8px 12px;margin-bottom:22px}
+
+  /* Comments */
+  section.comments{margin-top:40px;border-top:2px solid var(--line);padding-top:24px}
+  .c-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .c-head h2{font-family:Merriweather,Georgia,serif;font-size:1.35rem;margin:0}
+  button{font:inherit;cursor:pointer}
+  .btn{background:var(--green);color:#fff;border:0;border-radius:8px;padding:9px 16px;font-weight:700;font-size:.95rem}
+  .btn:hover{background:var(--green-dark)}
+  .btn.ghost{background:transparent;color:var(--green-dark);border:2px solid var(--green)}
+  .btn.ghost:hover{background:var(--green-light)}
+  .btn.small{padding:4px 10px;font-size:.82rem}
+  .btn.danger{background:var(--accent)}
+  #commentArea[hidden]{display:none}
+  .comment{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:16px}
+  .c-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;flex:0 0 auto}
+  .c-name{font-weight:700}
+  .c-date{color:var(--muted);font-size:.82rem}
+  .c-actions{margin-left:auto;display:flex;gap:6px;align-items:center;font-size:.85rem}
+  .c-body{white-space:pre-wrap;word-wrap:break-word}
+  .calc{font-family:"Cambria Math","STIX Two Math",Georgia,serif;background:#f8faf7;border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:10px 0;line-height:1.8}
+  .calc div{display:flex;gap:10px}
+  .calc .n{color:var(--muted);font-family:"Source Sans 3",sans-serif;font-size:.85rem;min-width:28px}
+  .likes{color:var(--muted);font-size:.85rem;margin-top:8px}
+
+  form.new{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:22px}
+  form.new h3{margin:0 0 12px;font-size:1.05rem}
+  label{display:block;font-weight:600;font-size:.9rem;margin-bottom:4px}
+  input[type=text],textarea{width:100%;font:inherit;font-size:1rem;padding:10px 12px;border:1px solid #c9d3c6;border-radius:8px;background:#fff;color:var(--ink)}
+  input[type=text]:focus,textarea:focus{outline:2px solid var(--green);border-color:transparent}
+  textarea{min-height:150px;resize:vertical}
+  .row{margin-bottom:12px}
+  .form-foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .saved{font-size:.82rem;color:var(--muted)}
+  .err{color:var(--accent);font-size:.88rem}
+  .empty{color:var(--muted);font-style:italic;margin-top:12px}
+  footer.site{text-align:center;color:var(--muted);font-size:.8rem;padding:24px 20px;border-top:1px solid var(--line);background:var(--card)}
+  @media (max-width:600px){ nav{display:none} body{font-size:17px} .tip{white-space:normal} }
+
+  /* Hilfen */
+  .help-fab{position:fixed;right:18px;bottom:18px;z-index:40;display:flex;align-items:center;gap:8px;background:#f2b705;color:#2a2200;border:0;border-radius:99px;padding:12px 18px;font-weight:700;font-size:1rem;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+  .help-fab:hover{background:#ffc928}
+  .help-fab svg{width:22px;height:22px}
+  .drawer-back{position:fixed;inset:0;background:rgba(20,30,22,.35);z-index:45;opacity:0;pointer-events:none;transition:opacity .2s}
+  .drawer-back.show{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;right:0;height:100%;width:min(480px,100%);background:#fffdf6;z-index:50;box-shadow:-8px 0 24px rgba(0,0,0,.2);transform:translateX(105%);transition:transform .25s ease;display:flex;flex-direction:column}
+  .drawer.show{transform:none}
+  .d-head{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid #eadfb8;background:#fff6d6}
+  .d-head h2{margin:0;font-size:1.15rem;font-family:Merriweather,Georgia,serif}
+  .d-close{margin-left:auto;background:transparent;border:0;font-size:1.6rem;line-height:1;color:#5a4a00;padding:4px 8px}
+  .d-tabs{display:flex;gap:6px;padding:12px 18px 0;flex-wrap:wrap}
+  .d-tab{border:2px solid #e2cf86;background:#fff;color:#5a4a00;border-radius:8px;padding:6px 12px;font-weight:700;font-size:.92rem}
+  .d-tab[aria-selected=true]{background:#f2b705;border-color:#f2b705;color:#2a2200}
+  .d-body{padding:14px 18px 30px;overflow-y:auto;flex:1;font-size:.97rem}
+  .d-body h3{margin:4px 0 4px;font-size:1.05rem}
+  .d-task{color:var(--muted);font-size:.9rem;margin:0 0 14px}
+  .stage{border:1px solid #eadfb8;border-radius:10px;background:#fff;margin-bottom:10px;overflow:hidden}
+  .stage-btn{width:100%;text-align:left;background:#fff;border:0;padding:11px 14px;font-weight:700;display:flex;align-items:center;gap:10px;color:var(--ink)}
+  .stage-btn .badge{font-size:.75rem;padding:2px 8px;border-radius:99px;background:#fff1c2;color:#6b5600;font-weight:700}
+  .stage.sol .stage-btn .badge{background:var(--green-light);color:var(--green-dark)}
+  .stage-btn .chev{margin-left:auto;transition:transform .2s;color:var(--muted)}
+  .stage.open .chev{transform:rotate(90deg)}
+  .stage-btn:disabled{color:#a3a89f;cursor:not-allowed;background:#f7f7f4}
+  .stage-btn:disabled .badge{background:#ececec;color:#999}
+  .lockinfo{font-weight:400;font-size:.8rem;color:#999}
+  .stage-content{display:none;padding:2px 14px 14px;border-top:1px dashed #eadfb8}
+  .stage.open .stage-content{display:block}
+  .stage-content ul,.stage-content ol{padding-left:20px;margin:8px 0}
+  .stage-content li{margin-bottom:4px}
+  .stage-content table{border-collapse:collapse;width:100%;font-size:.88rem;margin:8px 0}
+  .stage-content th,.stage-content td{border:1px solid #e3e0d2;padding:5px 7px;text-align:left;vertical-align:top}
+  .stage-content th{background:#faf6e6}
+  .f{font-family:"Cambria Math","STIX Two Math",Georgia,serif;white-space:nowrap}
+  .reset-help{margin-top:18px;font-size:.82rem;color:var(--muted);background:none;border:0;text-decoration:underline;padding:0}
+  @media print{ .help-fab,.drawer,.drawer-back{display:none} }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="site-inner">
+    <span class="logo">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#2f7d32"/><path d="M12 26c0-9 7-14 17-14-1 10-6 16-14 16-1 0-2 0-3-2z" fill="#cfe9c9"/><path d="M13 27c3-5 7-8 12-10" stroke="#2f7d32" stroke-width="1.6" fill="none"/></svg>
+      Netzwerk Ressourcenwende e.&nbsp;V.
+    </span>
+    <nav aria-label="Hauptnavigation">
+      <span>Über uns</span><span>Kampagnen</span><span class="active">Blog</span><span>Mitmachen</span>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="crumbs">Blog › Verpackung &amp; Müll</div>
+  <span class="tag">Verpackung</span>
+  <h1>Schlank, schick – und verschwenderisch: Die Wahrheit über die Coladose</h1>
+  <div class="meta"><span>Von der Redaktion</span><span>Lesezeit: 3 Minuten</span></div>
+
+  <figure class="hero">
+    <img src="dose.jpg" alt="Rote Getränkedose auf einem Holztisch vor grünem Hintergrund. Eingezeichnet sind der Durchmesser d am Boden und die Höhe h an der Seite.">
+    <figcaption>Durchmesser d und Höhe h einer typischen 0,33-l-Getränkedose.</figcaption>
+  </figure>
+
+  <p class="tiphint">Tipp: Fahren Sie mit der Maus über die <span style="border-bottom:2px dotted var(--green)">markierten Angaben</span> oder tippen Sie sie an, um Hinweise zu den Einheiten zu sehen.</p>
+
+  <article>
+    <p class="lead">Jedes Jahr landen Milliarden Getränkedosen im Handel. Für jede einzelne wird Aluminium gewalzt, gestanzt und geformt – ein Prozess, der enorm viel Energie verschlingt. Umso wichtiger ist es, dass für jede Dose so wenig Blech wie möglich verwendet wird.</p>
+
+    <p>Doch genau das passiert nicht. Nehmen wir die typische Coladose: Sie ist nahezu zylindrisch, fasst
+      <span class="tip" tabindex="0">330 ml<span class="bubble" role="tooltip"><b>Milliliter (ml)</b> ist eine Einheit für den Rauminhalt (das Volumen).<br>1 ml = 1 cm³ (ein Würfel mit 1 cm Kantenlänge).<br>Also: 330 ml = 330 cm³.</span></span>,
+      ist etwa
+      <span class="tip" tabindex="0">6,6 Zentimeter breit<span class="bubble" role="tooltip"><b>Breite</b> einer runden Dose = Durchmesser d.<br>Der Radius ist halb so groß: r = d : 2.<br>Einheit: Zentimeter (cm), eine Längeneinheit.</span></span>
+      und – ohne den gewölbten Rand gemessen – rund
+      <span class="tip" tabindex="0">9,6 Zentimeter hoch<span class="bubble" role="tooltip"><b>Höhe h</b> in Zentimetern (cm), einer Längeneinheit.<br>Gemessen wird vom Boden bis zum Deckel, ohne den gewölbten Rand.</span></span>.
+      Für den runden Boden, den Deckel und die Wand rundherum werden zusammen etwa
+      <span class="tip" tabindex="0">268 Quadratzentimeter<span class="bubble" role="tooltip"><b>Quadratzentimeter (cm²)</b> ist eine Einheit für Flächen.<br>1 cm² = Fläche eines Quadrats mit 1 cm Seitenlänge.<br>Hier: die gesamte Blechfläche der Dose.</span></span>
+      Aluminiumblech benötigt.</p>
+
+    <p>Warum muss die Dose so schlank sein? Unsere Expertinnen und Experten sind sich sicher:</p>
+
+    <blockquote class="claim">
+      „Eine Dose, in die genauso viel Cola passt, die aber breiter und niedriger ist, käme mit mindestens
+      <span class="tip" tabindex="0">20 Prozent<span class="bubble" role="tooltip"><b>Prozent (%)</b> bedeutet „von Hundert“.<br>20 % = 20/100 = 0,2.<br>Gemeint ist der Anteil an der bisherigen Blechfläche.</span></span>
+      weniger Blech aus.“
+      <footer>– Fachgruppe Verpackung, Netzwerk Ressourcenwende</footer>
+    </blockquote>
+
+    <p>Hochgerechnet auf alle Dosen wären das
+      <span class="tip" tabindex="0">tausende Tonnen<span class="bubble" role="tooltip"><b>Tonne (t)</b> ist eine Masseeinheit.<br>1 t = 1000 kg.</span></span>
+      Aluminium – Jahr für Jahr.</p>
+
+    <p>Die Getränkeindustrie setzt offenbar lieber auf ein schickes Design als auf die Umwelt.</p>
+
+    <p class="demand">Wir fordern: Schluss mit der Verschwendung – her mit der umweltfreundlichen Dose!</p>
+  </article>
+
+  <section class="comments" aria-labelledby="cTitle">
+    <div class="c-head">
+      <h2 id="cTitle">Kommentare (<span id="cCount">1</span>)</h2>
+      <button class="btn ghost" id="toggleBtn" aria-expanded="false" aria-controls="commentArea">Kommentare anzeigen</button>
+    </div>
+
+    <div id="commentArea" hidden>
+      <div class="comment" id="tom">
+        <div class="c-top">
+          <div class="avatar" style="background:#5b7fb3">T</div>
+          <div><div class="c-name">Tom_K</div><div class="c-date">vor 2 Tagen</div></div>
+        </div>
+        <div>Stimmt total, ich hab's nachgerechnet! Die Dose ist ein Zylinder.</div>
+        <div class="calc" aria-label="Rechenweg von Tom">
+          <div><span class="n">(1)</span><span>Blech: O = πr² + 2πrh &nbsp;(Boden + Wand)</span></div>
+          <div><span class="n">(2)</span><span>Inhalt: V = πr²h = 330, also h = 330/(πr²)</span></div>
+          <div><span class="n">(3)</span><span>Eingesetzt: O(r) = πr² + 660/r</span></div>
+          <div><span class="n">(4)</span><span>O'(r) = 2πr − 660/r² = 0 → r³ = 330/π → r ≈ 4,72</span></div>
+          <div><span class="n">(5)</span><span>h = 330/(π · 4,72²) ≈ 4,72</span></div>
+          <div><span class="n">(6)</span><span>O(4,72) ≈ 209,8</span></div>
+        </div>
+        <div><span class="n" style="color:var(--muted);font-size:.85rem">(7)</span> Die normale Dose braucht 268 cm², die perfekte nur 209,8. Das sind fast 22 % weniger! Die perfekte Dose ist 4,72 cm breit und 4,72 cm hoch. Die Umweltorganisation hat also völlig recht.</div>
+        <div class="likes">👍 14</div>
+      </div>
+
+      <div id="userComments"></div>
+
+      <form class="new" id="newForm" novalidate>
+        <h3>Kommentar schreiben</h3>
+        <div class="row">
+          <label for="cName">Name</label>
+          <input type="text" id="cName" maxlength="60" autocomplete="off" placeholder="z. B. Lea_M">
+        </div>
+        <div class="row">
+          <label for="cText">Ihr Kommentar</label>
+          <textarea id="cText" maxlength="4000" placeholder="Hallo Tom, …"></textarea>
+        </div>
+        <div class="form-foot">
+          <button type="submit" class="btn">Kommentar veröffentlichen</button>
+          <span class="saved" id="savedNote" aria-live="polite"></span>
+          <span class="err" id="errNote" aria-live="polite"></span>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site">Netzwerk Ressourcenwende e.&nbsp;V. ist eine fiktive Organisation. Diese Seite ist Unterrichtsmaterial.</footer>
+
+<script>
+(function(){
+  var KEY = "coladose-blog-v1";
+  var state = { open:false, comments:[], draftName:"", draftText:"" };
+
+  function load(){
+    try{
+      var raw = localStorage.getItem(KEY);
+      if(raw){ var s = JSON.parse(raw); if(s && typeof s === "object"){ state = Object.assign(state, s); } }
+    }catch(e){}
+    if(!Array.isArray(state.comments)) state.comments = [];
+  }
+  var savedTimer;
+  function save(showNote){
+    try{
+      localStorage.setItem(KEY, JSON.stringify(state));
+      if(showNote){
+        var n = document.getElementById("savedNote");
+        n.textContent = "Entwurf gespeichert";
+        clearTimeout(savedTimer);
+        savedTimer = setTimeout(function(){ n.textContent = ""; }, 1500);
+      }
+    }catch(e){}
+  }
+
+  var colors = ["#c0713a","#7a5bb3","#2f8f8a","#b34d6d","#6b8f2f","#3a6fc0"];
+  function colorFor(name){ var h=0; for(var i=0;i<name.length;i++){ h=(h*31+name.charCodeAt(i))>>>0; } return colors[h%colors.length]; }
+  function fmtDate(ts){
+    try{ return new Date(ts).toLocaleString("de-DE",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"}) + " Uhr"; }
+    catch(e){ return ""; }
+  }
+
+  var area = document.getElementById("commentArea");
+  var btn = document.getElementById("toggleBtn");
+  var list = document.getElementById("userComments");
+  var nameIn = document.getElementById("cName");
+  var textIn = document.getElementById("cText");
+
+  function setOpen(open){
+    state.open = open;
+    area.hidden = !open;
+    btn.textContent = open ? "Kommentare ausblenden" : "Kommentare anzeigen";
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  function render(){
+    document.getElementById("cCount").textContent = 1 + state.comments.length;
+    list.innerHTML = "";
+    state.comments.forEach(function(c){
+      var box = document.createElement("div"); box.className = "comment";
+      var top = document.createElement("div"); top.className = "c-top";
+      var av = document.createElement("div"); av.className = "avatar";
+      av.style.background = colorFor(c.name); av.textContent = (c.name.trim()[0] || "?").toUpperCase();
+      var who = document.createElement("div");
+      var nm = document.createElement("div"); nm.className = "c-name"; nm.textContent = c.name;
+      var dt = document.createElement("div"); dt.className = "c-date"; dt.textContent = fmtDate(c.ts);
+      who.appendChild(nm); who.appendChild(dt);
+      var act = document.createElement("div"); act.className = "c-actions";
+      var del = document.createElement("button"); del.type = "button"; del.className = "btn ghost small"; del.textContent = "Löschen";
+      del.addEventListener("click", function(){
+        act.innerHTML = "";
+        var q = document.createElement("span"); q.textContent = "Wirklich löschen?";
+        var yes = document.createElement("button"); yes.type="button"; yes.className="btn danger small"; yes.textContent="Ja";
+        var no = document.createElement("button"); no.type="button"; no.className="btn ghost small"; no.textContent="Nein";
+        yes.addEventListener("click", function(){
+          state.comments = state.comments.filter(function(x){ return x.id !== c.id; });
+          save(); render();
+        });
+        no.addEventListener("click", render);
+        act.appendChild(q); act.appendChild(yes); act.appendChild(no);
+      });
+      act.appendChild(del);
+      top.appendChild(av); top.appendChild(who); top.appendChild(act);
+      var body = document.createElement("div"); body.className = "c-body"; body.textContent = c.text;
+      box.appendChild(top); box.appendChild(body);
+      list.appendChild(box);
+    });
+  }
+
+  btn.addEventListener("click", function(){ setOpen(!state.open); save(); });
+
+  nameIn.addEventListener("input", function(){ state.draftName = nameIn.value; save(true); });
+  textIn.addEventListener("input", function(){ state.draftText = textIn.value; save(true); });
+
+  document.getElementById("newForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var err = document.getElementById("errNote");
+    var name = nameIn.value.trim(), text = textIn.value.trim();
+    if(!name || !text){ err.textContent = "Bitte Name und Kommentar ausfüllen."; return; }
+    err.textContent = "";
+    state.comments.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2,6), name: name, text: text, ts: Date.now() });
+    state.draftText = "";
+    textIn.value = "";
+    save(); render();
+    var last = list.lastElementChild; if(last && last.scrollIntoView) last.scrollIntoView({behavior:"smooth", block:"center"});
+  });
+
+  // Tooltips per Tippen (Touch-Geräte)
+  document.querySelectorAll(".tip").forEach(function(t){
+    t.addEventListener("click", function(ev){
+      ev.stopPropagation();
+      var was = t.classList.contains("open");
+      document.querySelectorAll(".tip.open").forEach(function(o){ o.classList.remove("open"); });
+      if(!was) t.classList.add("open");
+    });
+    t.addEventListener("keydown", function(ev){ if(ev.key === "Escape"){ t.classList.remove("open"); t.blur(); } });
+  });
+  document.addEventListener("click", function(){ document.querySelectorAll(".tip.open").forEach(function(o){ o.classList.remove("open"); }); });
+
+  load();
+  nameIn.value = state.draftName || "";
+  textIn.value = state.draftText || "";
+  setOpen(!!state.open);
+  render();
+})();
+</script>
+
+<button class="help-fab" id="helpFab" aria-controls="helpDrawer" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg>
+  Hilfen zu den Aufgaben
+</button>
+<div class="drawer-back" id="helpBack"></div>
+<aside class="drawer" id="helpDrawer" role="dialog" aria-modal="true" aria-labelledby="helpTitle" aria-hidden="true">
+  <div class="d-head">
+    <h2 id="helpTitle">Hilfen zum Aufgabenblatt</h2>
+    <button class="d-close" id="helpClose" aria-label="Hilfen schließen">×</button>
+  </div>
+  <div class="d-tabs" role="tablist" id="helpTabs"></div>
+  <div class="d-body" id="helpBody"></div>
+</aside>
+
+<script>
+(function(){
+  var KEY = "coladose-hilfen-v1";
+  var HELP = [
+    { n:1, title:"Aufgabe 1 – Größen und Objekte erfassen",
+      task:"Alle Größen mit Werten in die Tabelle eintragen, Fachbegriff und Symbol ergänzen.",
+      stages:[
+        { label:"Tipp 1", html:"<p>Suchen Sie im Blogtext nach <b>Zahlen mit Einheiten</b>. Es sind fünf Angaben – die erste („fasst 330 ml“) steht schon in der Tabelle.</p><p>Die markierten Stellen im Text zeigen beim Antippen Hinweise zu den Einheiten.</p>" },
+        { label:"Tipp 2", html:"<p>Ordnen Sie jeder Angabe einen dieser Fachbegriffe zu:</p><p><i>Volumen · Durchmesser · Höhe · Oberfläche · prozentuale Ersparnis</i></p><p>Achtung: „breit“ bedeutet bei einer runden Dose den <b>Durchmesser</b> d. Der Radius ist halb so groß: r = d : 2.</p><p>Objekte: Welcher Körper ist die Dose? Aus welchen Flächen besteht sie laut Text?</p>" },
+        { label:"Kontrolle", sol:true, html:"<table><tr><th>Text</th><th>Fachbegriff</th><th>Symbol</th><th>Wert</th></tr><tr><td>fasst 330 ml</td><td>Volumen</td><td>V</td><td>330 cm³</td></tr><tr><td>6,6 cm breit</td><td>Durchmesser</td><td>d (r)</td><td>6,6 cm (r = 3,3 cm)</td></tr><tr><td>9,6 cm hoch</td><td>Höhe</td><td>h</td><td>≈ 9,6 cm</td></tr><tr><td>268 cm² Blech</td><td>Oberfläche</td><td>O</td><td>≈ 268 cm²</td></tr><tr><td>20 Prozent weniger</td><td>prozentuale Ersparnis</td><td>–</td><td>≥ 20 %</td></tr></table><p>Objekte: Dose = Zylinder; Boden und Deckel (zwei Kreise), Wand (Mantel).</p>" }
+      ]},
+    { n:2, title:"Aufgabe 2 – Die Behauptung in Mathematik übersetzen",
+      task:"a) Die Bausteine (1)–(6) den Teilen der Behauptung zuordnen. b) Den Satz zur mathematischen Aussage vervollständigen.",
+      stages:[
+        { label:"Tipp 1: Zuordnen (a)", html:"<p>Fast jeder Baustein enthält ein Symbol aus Aufgabe 1. Fragen Sie sich: <b>Um welche Größe geht es?</b></p><table><tr><th>Symbol</th><th>Größe</th><th>passt zu …</th></tr><tr><td>V</td><td>Volumen</td><td>Wie viel Cola passt hinein?</td></tr><tr><td>r</td><td>Radius</td><td>Wie breit ist die Dose?</td></tr><tr><td>h</td><td>Höhe</td><td>Wie hoch ist die Dose?</td></tr><tr><td>O</td><td>Oberfläche</td><td>Wie viel Blech braucht man?</td></tr></table><p>Zwei Bausteine enthalten O. Einer sagt, <i>wie man</i> die Blechmenge berechnet, der andere, <i>wie viel</i> es höchstens sein darf. Tipp: 0,8 = 80 %.</p>" },
+        { label:"Tipp 2: Satz vervollständigen (b)", html:"<p>Der Satz hat drei Lücken:</p><ol><li><b>r &gt; …</b> – Welche Zahl steht im Baustein für „breiter“?</li><li><b>für den gilt: …</b> – Was muss für die neue Dose <i>immer</i> gelten, damit gleich viel Cola hineinpasst?</li><li><b>sodass …</b> – Was soll dann herauskommen? Kombinieren Sie die beiden Bausteine mit O zu <i>einer</i> Ungleichung.</li></ol><p>Ein Baustein wird im Satz nicht gebraucht. Überlegen Sie, warum: Was passiert mit der Höhe, wenn das Volumen gleich bleibt und der Radius größer wird?</p>" },
+        { label:"Kontrolle", sol:true, html:"<table><tr><th>Umgangssprachlich</th><th>Mathematisch</th></tr><tr><td>„Eine Dose …“</td><td>(4) Zylinder mit Radius r und Höhe h</td></tr><tr><td>„… in die genauso viel Cola passt …“</td><td>(6) <span class=\"f\">V = πr²h = 330 cm³</span></td></tr><tr><td>„… die aber breiter …“</td><td>(2) <span class=\"f\">r &gt; 3,3 cm</span></td></tr><tr><td>„… und niedriger ist …“</td><td>(3) <span class=\"f\">h &lt; 9,6 cm</span></td></tr><tr><td>„… Blech …“</td><td>(5) <span class=\"f\">O = 2πr² + 2πrh</span></td></tr><tr><td>„… mindestens 20 % weniger …“</td><td>(1) <span class=\"f\">O ≤ 0,8 · 268 cm² ≈ 214 cm²</span></td></tr></table><p><b>Mathematische Aussage:</b> Es gibt einen Zylinder mit Radius <span class=\"f\">r &gt; 3,3 cm</span> und Höhe h, für den gilt: <span class=\"f\">πr²h = 330 cm³</span>, sodass <span class=\"f\">2πr² + 2πrh ≤ 214 cm²</span>.</p><p>Baustein (3) ist nicht nötig: Bleibt das Volumen gleich und wird der Radius größer, wird die Dose automatisch niedriger.</p>" }
+      ]},
+    { n:3, title:"Aufgabe 3 – Den Rechenweg beschreiben (Erklär-Tandem)",
+      task:"Schritte (1)–(7) des Kommentars beschreiben und jeweils das Ziel nennen.",
+      stages:[
+        { label:"Tipp 1: Ziele", html:"<ul><li><b>Schritte (1)–(3):</b> Eine Funktion aufstellen, die die Oberfläche nur noch in Abhängigkeit vom Radius r beschreibt (Zielfunktion).</li><li><b>Schritte (4)–(6):</b> Den Radius finden, bei dem die Oberfläche am kleinsten ist, und die zugehörigen Maße berechnen.</li><li><b>Schritt (7):</b> Das Ergebnis mit der normalen Dose vergleichen und die Behauptung bewerten.</li></ul>" },
+        { label:"Tipp 2: Fachbegriffe", html:"<table><tr><th>Schritt</th><th>Stichwort</th></tr><tr><td>(1)</td><td>Formel für die Zielgröße (Hauptbedingung)</td></tr><tr><td>(2)</td><td>Nebenbedingung (Volumen) nach h umstellen</td></tr><tr><td>(3)</td><td>h einsetzen → Zielfunktion O(r)</td></tr><tr><td>(4)</td><td>Ableitung bilden, notwendige Bedingung O′(r) = 0, nach r auflösen</td></tr><tr><td>(5)</td><td>r in die umgestellte Nebenbedingung einsetzen → h</td></tr><tr><td>(6)</td><td>Funktionswert O(r) = minimale Oberfläche</td></tr><tr><td>(7)</td><td>prozentualer Vergleich, Fazit</td></tr></table>" },
+        { label:"Satzbausteine", sol:true, html:"<ul><li>„Im ersten Schritt stellt Tom eine Formel für … auf, weil …“</li><li>„Da das Volumen fest ist, kann man … nach h umstellen.“</li><li>„Durch Einsetzen hängt die Oberfläche nur noch von … ab.“</li><li>„Um das Minimum zu finden, setzt er die Ableitung … gleich null.“</li><li>„Anschließend berechnet er … und …“</li><li>„Zum Schluss vergleicht er …“</li></ul><p>Nachfragen für Partner/in B: „Warum ist dieser Schritt nötig?“ – „Woher kommt die Zahl 660?“</p>" }
+      ]},
+    { n:4, title:"Aufgabe 4 – Fehler in den Schritten (1)–(3)",
+      task:"Die ersten drei Schritte auf Fehler untersuchen, benennen und verbessern.",
+      stages:[
+        { label:"Tipp 1", html:"<p>Lesen Sie im Blogtext nach: Aus welchen Teilen besteht das Blech der Dose? Stellen Sie sich das <b>Netz</b> eines Zylinders vor. Wie viele Kreise braucht man?</p><p>Vergleichen Sie mit Toms Formel in Schritt (1).</p>" },
+        { label:"Tipp 2", html:"<p>Prüfen Sie Schritt (2) mit der Volumenformel des Zylinders.</p><p>Prüfen Sie Schritt (3), indem Sie selbst einsetzen und kürzen:</p><p class=\"f\">2πr · 330/(πr²) = …</p><p>Überlegen Sie: Wenn Schritt (1) falsch ist, was bedeutet das für Schritt (3)?</p>" },
+        { label:"Kontrolle", sol:true, html:"<table><tr><th>Schritt</th><th>Fehler und Korrektur</th></tr><tr><td>(1)</td><td>Deckel vergessen – nur ein Kreis gezählt. Richtig: <span class=\"f\">O = 2πr² + 2πrh</span></td></tr><tr><td>(2)</td><td>korrekt: <span class=\"f\">h = 330/(πr²)</span></td></tr><tr><td>(3)</td><td>Folgefehler. Richtig: <span class=\"f\">O(r) = 2πr² + 660/r</span>, r &gt; 0</td></tr></table>" }
+      ]},
+    { n:5, title:"Aufgabe 5 – Mit GeoGebra die optimale Dose bestimmen",
+      task:"Optimale Dose bestimmen, mit der normalen Dose vergleichen, Ersparnis berechnen.",
+      stages:[
+        { label:"Tipp 1", html:"<ul><li>Bewegen Sie den Schieberegler für r und beobachten Sie den Punkt auf dem Graphen.</li><li>Die optimale Dose gehört zum <b>Tiefpunkt T</b> des Graphen: x-Wert = Radius, y-Wert = Oberfläche.</li><li>Für die normale Dose stellen Sie r = 3,3 ein und lesen h und O ab.</li></ul>" },
+        { label:"Tipp 2", html:"<p>Ersparnis in Prozent:</p><p class=\"f\">(O<sub>normal</sub> − O<sub>optimal</sub>) : O<sub>normal</sub> · 100 %</p><p>Vergleichen Sie Ihr Ergebnis mit den behaupteten 20 %.</p>" },
+        { label:"Kontrollwerte", sol:true, html:"<table><tr><th>Größe</th><th>Optimal</th><th>Normal</th></tr><tr><td>r in cm</td><td>≈ 3,74</td><td>3,3</td></tr><tr><td>h in cm</td><td>≈ 7,49</td><td>≈ 9,65</td></tr><tr><td>O in cm²</td><td>≈ 264,4</td><td>≈ 268,4</td></tr></table><p>Ersparnis ≈ 1,5 %. Die Umweltorganisation hat <b>nicht</b> recht. Auffällig: Bei der optimalen Dose ist die Höhe genauso groß wie der Durchmesser.</p>" }
+      ]},
+    { n:6, title:"Aufgabe 6 – Antwortkommentar schreiben",
+      task:"Antwortkommentar mit Anerkennung, Fehlern, Korrektur und Fazit verfassen.",
+      stages:[
+        { label:"Tipp 1: Aufbau", html:"<ol><li><b>Anerkennung:</b> Was hat Tom richtig gemacht? (Denken Sie an Ihre Ergebnisse aus Aufgabe 3 und 4.)</li><li><b>Fehler:</b> zwei relevante Fehler – mit Begründung, warum sie das Ergebnis verfälschen.</li><li><b>Korrektur:</b> richtiger Ansatz und Ergebnis mit Einheiten (Aufgabe 5).</li><li><b>Fazit:</b> Hat die Umweltorganisation recht?</li></ol><p>Schreiben Sie freundlich und so, dass auch Leser ohne Mathe-Kenntnisse folgen können.</p>" },
+        { label:"Tipp 2: Die Fehler", html:"<p>Die zwei wichtigsten Fehler:</p><ul><li>Der <b>Deckel fehlt</b> in der Formel.</li><li>Tom vergleicht in Schritt (7) zwei Werte, die <b>unterschiedlich berechnet</b> wurden: 268 cm² mit Deckel, 209,8 cm² ohne Deckel.</li></ul><p>Weitere Mängel: 4,72 cm ist der Radius, nicht die Breite; Einheiten fehlen; es wird nicht gezeigt, dass wirklich ein Minimum vorliegt.</p>" },
+        { label:"Satzbausteine", sol:true, html:"<ul><li>„Hallo Tom, gut finde ich, dass du …“</li><li>„Allerdings hast du in Schritt (1) … vergessen. Dadurch …“</li><li>„Außerdem vergleichst du in Schritt (7) …, obwohl …“</li><li>„Richtig wäre der Ansatz …, denn eine Dose besteht aus …“</li><li>„Die beste Dose hätte einen Radius von etwa … cm und wäre … cm hoch. Sie bräuchte … cm² Blech, die normale Dose … cm².“</li><li>„Das sind nur etwa … % weniger. Die Behauptung der Umweltorganisation ist also …“</li></ul><p><b>Vor dem Absenden prüfen:</b> sachlicher Ton · beide Fehler erklärt · Zahlen mit Einheiten · klares Fazit.</p>" }
+      ]}
+  ];
+
+  var st = { open:false, tab:1, seen:{} };
+  try{ var raw = localStorage.getItem(KEY); if(raw){ var s = JSON.parse(raw); if(s && typeof s==="object") st = Object.assign(st, s); } }catch(e){}
+  if(!st.seen || typeof st.seen!=="object") st.seen = {};
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(st)); }catch(e){} }
+
+  var fab = document.getElementById("helpFab"), drawer = document.getElementById("helpDrawer"),
+      back = document.getElementById("helpBack"), tabs = document.getElementById("helpTabs"),
+      body = document.getElementById("helpBody");
+
+  function setOpen(o){
+    st.open = o;
+    drawer.classList.toggle("show", o); back.classList.toggle("show", o);
+    drawer.setAttribute("aria-hidden", o ? "false" : "true");
+    fab.setAttribute("aria-expanded", o ? "true" : "false");
+    if(o){ var sel = tabs.querySelector("[aria-selected=true]"); if(sel) sel.focus(); }
+    save();
+  }
+
+  function renderTabs(){
+    tabs.innerHTML = "";
+    HELP.forEach(function(h){
+      var b = document.createElement("button");
+      b.className = "d-tab"; b.setAttribute("role","tab");
+      b.setAttribute("aria-selected", h.n===st.tab ? "true" : "false");
+      b.textContent = "Aufgabe " + h.n;
+      b.addEventListener("click", function(){ st.tab = h.n; save(); renderTabs(); renderBody(); });
+      tabs.appendChild(b);
+    });
+  }
+
+  function renderBody(){
+    var h = HELP.filter(function(x){ return x.n===st.tab; })[0];
+    var seen = st.seen[h.n] || [];
+    body.innerHTML = "";
+    var t = document.createElement("h3"); t.textContent = h.title; body.appendChild(t);
+    var p = document.createElement("p"); p.className = "d-task"; p.textContent = h.task; body.appendChild(p);
+    h.stages.forEach(function(sg, i){
+      var unlocked = i===0 || seen.indexOf(i-1) !== -1;
+      var box = document.createElement("div");
+      box.className = "stage" + (sg.sol ? " sol" : "") + (st["o"+h.n+"_"+i] ? " open" : "");
+      var btn = document.createElement("button");
+      btn.className = "stage-btn"; btn.disabled = !unlocked;
+      btn.setAttribute("aria-expanded", st["o"+h.n+"_"+i] ? "true" : "false");
+      btn.innerHTML = '<span class="badge">Stufe ' + (i+1) + '</span><span>' + sg.label + '</span>' +
+        (unlocked ? '' : ' <span class="lockinfo">– erst nach Stufe ' + i + '</span>') + '<span class="chev">›</span>';
+      var c = document.createElement("div"); c.className = "stage-content"; c.innerHTML = sg.html;
+      btn.addEventListener("click", function(){
+        var k = "o"+h.n+"_"+i; st[k] = !st[k];
+        if(st[k] && seen.indexOf(i)===-1){ seen.push(i); st.seen[h.n] = seen; }
+        save(); renderBody();
+      });
+      box.appendChild(btn); box.appendChild(c); body.appendChild(box);
+    });
+    var r = document.createElement("button"); r.className = "reset-help"; r.textContent = "Hilfen zu dieser Aufgabe wieder sperren";
+    r.addEventListener("click", function(){
+      st.seen[h.n] = []; h.stages.forEach(function(_, i){ delete st["o"+h.n+"_"+i]; }); save(); renderBody();
+    });
+    body.appendChild(r);
+  }
+
+  fab.addEventListener("click", function(){ setOpen(true); });
+  document.getElementById("helpClose").addEventListener("click", function(){ setOpen(false); fab.focus(); });
+  back.addEventListener("click", function(){ setOpen(false); });
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape" && st.open){ setOpen(false); fab.focus(); } });
+
+  renderTabs(); renderBody();
+  if(location.hash === "#hilfen") st.open = true;
+  setOpen(!!st.open);
+  window.addEventListener("hashchange", function(){ if(location.hash==="#hilfen") setOpen(true); });
+})();
+</script>
+</body>
+</html>
